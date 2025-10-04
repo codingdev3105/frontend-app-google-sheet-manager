@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+ 
+
+/* Choisis ta police principale */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;  
+  color: #111827;  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+ 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+ 
+
+
+.flex {
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.border {
+    border: 1px solid green;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+/* ---------------- APP --------------------*/
+.nav{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(214, 238, 255);
+    padding: 0px 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-logo{
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-options{
+    gap: 30px;
+    align-items: center; 
+}
+
+.nav-option:hover{
+    text-decoration: underline;
+}
+
+.pages{
+    padding: 0px 50px;
+}
+@media (max-width: 768px) {
+    .nav{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid rgb(214, 238, 255);
+        padding: 0px 30px;
+    }
+    .pages{
+        padding: 0px 30px;
+    }
+    .nav-logo{
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
+    .nav-options{
+        display: none;
+    }
 }

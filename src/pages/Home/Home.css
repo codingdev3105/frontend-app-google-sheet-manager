@@ -1,0 +1,47 @@
+
+
+
+.home{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 600px;
+}
+
+.home-btns{
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+}
+
+.home-btns-btn{
+    background-color: rgb(196, 231, 247);
+    color: rgb(0, 123, 255);
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.6s;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.home-btns-btn-icon{
+    width: 20px;
+    height: 20px
+}
+
+.home-btns-btn:hover{
+    background-color: rgb(0, 123, 255);
+    color: rgb(196, 231, 247);
+}
+
+@media (max-width: 768px){
+    .home-btns{
+        flex-direction: column; 
+        justify-content: center;
+        gap: 20px;
+        width: 80%;
+    }
+}
