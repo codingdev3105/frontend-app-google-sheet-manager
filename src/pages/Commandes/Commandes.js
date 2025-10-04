@@ -64,7 +64,7 @@ export default function Commandes() {
   useEffect(() => {
     async function laodCommandes() {
       try {
-        const data = await Get_Commandes();
+        const data = await Get_Commandes(); 
         const cleanData = formaterCommandes(data);
         setCommandes(cleanData);
       } catch (err) {
