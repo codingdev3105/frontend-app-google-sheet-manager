@@ -17,6 +17,7 @@ export async function Get_Commandes() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'commandes'
   }); 
+  console.log(res.data)
   return res.data;
 }
 
@@ -24,6 +25,7 @@ export async function Get_wilayas() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code wilayas'
   }); 
+  console.log(res.data)
   return res.data;
 }
 
@@ -51,6 +53,7 @@ export async function Get_stations() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code stations'
   }); 
+  console.log(res.data)
   return res.data;
 }
 
