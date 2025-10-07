@@ -53,6 +53,15 @@ a {
     text-decoration: underline;
 }
 
+.nav-option-acceuil{
+    transition: all 0.5s;
+}
+
+
+.nav-option-acceuil:hover{
+    scale: 2;
+}
+
 .pages{
     padding: 0px 50px;
 }
@@ -62,10 +71,10 @@ a {
         align-items: center;
         justify-content: space-between;
         border-bottom: 2px solid rgb(214, 238, 255);
-        padding: 0px 30px;
+        padding: 0px 10px;
     }
     .pages{
-        padding: 0px 30px;
+        padding: 0px 10px;
     }
     .nav-logo{
         flex-direction: row;

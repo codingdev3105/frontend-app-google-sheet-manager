@@ -13,7 +13,7 @@ function App() {
       <nav className="nav flex">
         <div className="nav-logo flex">
           <img src="/images/sheet-icon.png" alt="logo" width={40}/>
-          <h2 className="">Gestion de Commerce</h2>
+          <h3><Link to="/" className="nav-option-acceuil">Gestion de Commerce</Link></h3>
         </div>
         <div className="nav-options flex">
           <Link to="/" className="nav-option">Accueil</Link>
