@@ -7,7 +7,7 @@ import { FcStatistics } from "react-icons/fc";
 export default function Home() {
   return (
     <div className="home flex">
-      <h2 className="">Bienvenue sur la plateforme</h2>
+      <h3 className="">Bienvenue sur la plateforme</h3>
       <div className="home-btns flex">
         <Link to="/inserer" className="home-btns-btn flex">
           <MdOutlineAddCircle className="home-btns-btn-icon"/> Insérer une commande

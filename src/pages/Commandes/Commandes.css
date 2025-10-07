@@ -1,122 +1,118 @@
 .orders-container {
   padding: 20px;
-  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
 }
 
-.orders-container h1 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.orders-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.orders-table thead {
-  background: #1077ec;
-  color: white;
-  text-align: left;
-}
-
-.orders-table th, 
-.orders-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #eee;
-}
-
-.orders-table tbody tr:hover {
-  background: #f1f7ff;
-  transition: 0.3s;
-}
-
-.orders-table tbody tr:nth-child(even) {
-  background: #fafafa;
-}
-
-.orders-table th {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.orders-table td {
-  font-size: 13px;
-  color: #000000;
-}
-
-.pagination {
-  margin-top: 20px;
+.orders-header {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  font-size: 15px;
-}
-
-.pagination button {
-  background: transparent;
-  border: 1px solid #ddd;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #333;
-  transition: all 0.2s ease-in-out;
-}
-
-.pagination button:hover:not(:disabled) {
-  background: #f2f2f2;
-}
-
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  margin-bottom: 20px;
 }
 
 .search-bar {
-  margin: 10px 0 20px;
-  padding: 8px 12px;
-  width: 100%;
-  max-width: 300px;
+  padding: 10px 15px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  width: 250px;
+  transition: all 0.3s;
 }
 
+.search-bar:focus {
+  border-color: #007bff;
+  outline: none;
+}
 
-/* Responsive */
-@media (max-width: 768px) {
-  /* .orders-table thead {
-    display: none;
-  }
-  .orders-table, 
-  .orders-table tbody, 
-  .orders-table tr, 
-  .orders-table td {
-    display: block;
-    width: 100%;
-  }
-  .orders-table tr {
-    margin-bottom: 15px;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
-    border-radius: 6px;
-    padding: 10px;
-  }
-  .orders-table td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-  }
-  .orders-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 15px;
-    font-weight: bold;
-    color: #333;
-  } */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.card-body h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  color: #555;
+}
+
+.card-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.badge {
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.no-orders {
+  text-align: center;
+  color: #999;
+  font-size: 1rem;
+  grid-column: 1 / -1;
+}
+
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0056b3;
 }

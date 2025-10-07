@@ -2,13 +2,8 @@
 import axios from "axios"; 
 
 
-  // "scripts": {
-  //   "start": "serve -s build -l $PORT",
-  //   "build": "react-scripts build",
-  //   "test": "react-scripts test",
-  //   "eject": "react-scripts eject"
-  // },
-
+// "https://backend-app-google-sheet-manager.vercel.app"
+// "http://localhost:5000"
 
 const API_URL = "https://backend-app-google-sheet-manager.vercel.app";
 

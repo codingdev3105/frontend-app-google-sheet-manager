@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Get_Commandes , Get_wilayas } from "../../API/Sheets";
+import { Get_Commandes, Get_wilayas } from "../../API/Sheets";
 import "./Commandes.css";
 
 /** --- Utils --- */
@@ -62,29 +62,26 @@ export default function Commandes() {
   const commandesPerPage = 8;
 
   useEffect(() => {
-    async function laodCommandes() {
+    async function loadData() {
       try {
-        const data = await Get_Commandes(); 
+        const data = await Get_Commandes();
         const cleanData = formaterCommandes(data);
         setCommandes(cleanData);
       } catch (err) {
-        console.error("Erreur lors du fetch:", err);
+        console.error("Erreur lors du fetch commandes:", err);
       }
-    }
-    laodCommandes();
 
-    async function loadWilayas() {
       try {
-        const data = await Get_wilayas(); 
-        setWilayas(data); 
+        const wData = await Get_wilayas();
+        setWilayas(wData);
       } catch (err) {
-        console.error("Erreur lors du fetch:", err);
+        console.error("Erreur lors du fetch wilayas:", err);
       }
     }
-    loadWilayas();
+    loadData();
   }, []);
-  
-  const filteredWilayas = (code_wilaya) => {  
+
+  const filteredWilayas = (code_wilaya) => {
     let nom = "";
     wilayas.forEach((w) => {
       if (w["code wilaya"] === code_wilaya) {
@@ -94,15 +91,14 @@ export default function Commandes() {
     return nom;
   };
 
-
-  // ✅ Filtrer les commandes selon la recherche
+  // 🔍 Filtrer selon recherche
   const filteredCommandes = commandes.filter((cmd) =>
     Object.values(cmd).some((val) =>
       String(val).toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
 
-  // ✅ Pagination
+  // 🔢 Pagination
   const indexOfLast = currentPage * commandesPerPage;
   const indexOfFirst = indexOfLast - commandesPerPage;
   const currentCommandes = filteredCommandes.slice(indexOfFirst, indexOfLast);
@@ -110,66 +106,56 @@ export default function Commandes() {
 
   return (
     <div className="orders-container">
-
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h1>📦 Liste des commandes</h1>
-
-        {/* 🔍 Barre de recherche */}
+      <div className="orders-header">
+        <h1>📦 Liste des Commandes</h1>
         <input
           type="text"
-          placeholder="Rechercher une commande..."
+          placeholder="🔍 Rechercher une commande..."
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
-            setCurrentPage(1); // reset pagination à la première page
+            setCurrentPage(1);
           }}
           className="search-bar"
         />
-
       </div>
-      
-      <table className="orders-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Réf</th>
-            <th>Nom Client</th>
-            <th>Téléphone</th>
-            <th>Wilaya</th>
-            <th>Commune</th>
-            <th>Adresse</th>
-            <th>Stop Desk</th>
-            <th>Produit</th>
-            <th>Montant</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentCommandes.length > 0 ? (
-            currentCommandes.map((cmd, i) => (
-              <tr key={i}>
-                <td>{cmd.date}</td>
-                <td>{cmd.reference}</td>
-                <td>{cmd.nomClient}</td>
-                <td>{cmd.telephone}</td>
-                <td>{filteredWilayas(cmd.codeWilaya)}</td>
-                <td>{cmd.commune}</td>
-                <td>{cmd.adresse}</td>
-                <td>{cmd.stopDesk}</td>
-                <td>{cmd.produit}</td>
-                <td>{cmd.montant}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="9" style={{ textAlign: "center", padding: "10px" }}>
-                ❌ Aucune commande trouvée
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
 
-      {/* --- Pagination Controls --- */}
+      {/* ✅ Liste sous forme de cartes */}
+      <div className="cards-grid">
+        {currentCommandes.length > 0 ? (
+          currentCommandes.map((cmd, i) => (
+            <div className="order-card" key={i}>
+              <div className="card-header">
+                <span className="ref">📄 {cmd.reference || "N/A"}</span>
+                <span className="date">{cmd.date || "—"}</span>
+              </div>
+              <div className="card-body">
+                <h3>{cmd.nomClient || "Client inconnu"}</h3>
+                <p>
+                  📞 {cmd.telephone || "—"} <br />
+                  🏙️ {filteredWilayas(cmd.codeWilaya)} - {cmd.commune} <br />
+                  📍 {cmd.adresse || "—"}
+                </p>
+                <p>
+                  📦 Produit : <b>{cmd.produit || "—"}</b>
+                </p>
+                <p>
+                  💰 Montant : <b>{cmd.montant || "—"} DA</b>
+                </p>
+              </div>
+              <div className="card-footer">
+                <span className="badge">
+                  {cmd.stopDesk ? "🛑 Stop Desk" : "🚚 Livraison"}
+                </span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="no-orders">❌ Aucune commande trouvée</p>
+        )}
+      </div>
+
+      {/* Pagination */}
       <div className="pagination">
         <button
           disabled={currentPage === 1}
