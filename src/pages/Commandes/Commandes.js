@@ -76,8 +76,7 @@ export default function Commandes() {
     async function loadWilayas() {
       try {
         const data = await Get_wilayas(); 
-        setWilayas(data);
-        console.log(data)
+        setWilayas(data); 
       } catch (err) {
         console.error("Erreur lors du fetch:", err);
       }

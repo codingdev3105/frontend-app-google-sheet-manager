@@ -2,24 +2,33 @@
 import axios from "axios"; 
 
 
-const API_URL = process.env.BACKEND_APP_API_URL  ; // Ton backend
+  // "scripts": {
+  //   "start": "serve -s build -l $PORT",
+  //   "build": "react-scripts build",
+  //   "test": "react-scripts test",
+  //   "eject": "react-scripts eject"
+  // },
+
+
+const API_URL = process.env.BACKEND_APP_API_URL;
+
 
 export async function Get_Commandes() {
-  const res = await axios.post(`${API_URL}/get`,{
+  const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'commandes'
   }); 
   return res.data;
 }
 
 export async function Get_wilayas() {
-  const res = await axios.post(`${API_URL}/get`,{
+  const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code wilayas'
   }); 
   return res.data;
 }
 
 export async function Get_Communes(wilaya_id) {
-  const res = await axios.post(`${API_URL}/get`,{
+  const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code communes'
   }); 
 
@@ -39,13 +48,13 @@ export async function Get_Communes(wilaya_id) {
 }
 
 export async function Get_stations() {
-  const res = await axios.post(`${API_URL}/get`,{
+  const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code stations'
   }); 
   return res.data;
 }
 
 export async function Add_Commandes(commande) {
-  const res = await axios.post(`${API_URL}/add`, { commande: commande });
+  const res = await axios.post(`${API_URL}/sheets/add`, { commande: commande });
   return res.data;
 }
