@@ -53,14 +53,11 @@ a {
     text-decoration: underline;
 }
 
-.nav-option-acceuil{
-    transition: all 0.5s;
+
+.nav-option-acceuil2 {
+    display: none;
 }
 
-
-.nav-option-acceuil:hover{
-    scale: 2;
-}
 
 .pages{
     padding: 0px 50px;
@@ -83,5 +80,11 @@ a {
     }
     .nav-options{
         display: none;
+    }
+    .nav-option-acceuil{
+        display: none;
+    }
+    .nav-option-acceuil2 {
+        display: block;
     }
 }

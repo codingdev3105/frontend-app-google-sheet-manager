@@ -15,6 +15,7 @@ function App() {
           <img src="/images/sheet-icon.png" alt="logo" width={40}/>
           <h3><Link to="/" className="nav-option-acceuil">Gestion de Commerce</Link></h3>
         </div>
+        <h3><Link to="/" className="nav-option-acceuil2">Gestion de Commerce</Link></h3>
         <div className="nav-options flex">
           <Link to="/" className="nav-option">Accueil</Link>
           <Link to="/inserer" className="nav-option">Insérer</Link>
