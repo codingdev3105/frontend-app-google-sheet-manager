@@ -38,6 +38,7 @@ const ALIASES = {
   reference: "reference",
   remarque: "remarque",
   telephone: "telephone",
+  etat: "etat",
 };
 
 function formaterCommandes(commandes) {
@@ -104,6 +105,26 @@ export default function Commandes() {
   const currentCommandes = filteredCommandes.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(filteredCommandes.length / commandesPerPage);
 
+  // 🎨 Couleurs selon l’état
+  const getEtatClass = (etat) => {
+    switch ((etat || "").toLowerCase().trim()) {
+      case "nouvelle":
+        return "etat-nouvelle"; // 🩵
+      case "atelier":
+        return "etat-atelier"; // 💜
+      case "envoyer":
+        return "etat-envoyer"; // 🟠
+      case "livre":
+      case "livré":
+        return "etat-livre"; // 🟢
+      case "annule":
+      case "annulée":
+        return "etat-annule"; // 🔴
+      default:
+        return "etat-inconnue"; // Gris
+    }
+  };
+
   return (
     <div className="orders-container">
       <div className="orders-header">
@@ -120,7 +141,6 @@ export default function Commandes() {
         />
       </div>
 
-      {/* ✅ Liste sous forme de cartes */}
       <div className="cards-grid">
         {currentCommandes.length > 0 ? (
           currentCommandes.map((cmd, i) => (
@@ -129,6 +149,7 @@ export default function Commandes() {
                 <span className="ref">📄 {cmd.reference || "N/A"}</span>
                 <span className="date">{cmd.date || "—"}</span>
               </div>
+
               <div className="card-body">
                 <h3>{cmd.nomClient || "Client inconnu"}</h3>
                 <p>
@@ -143,7 +164,11 @@ export default function Commandes() {
                   💰 Montant : <b>{cmd.montant || "—"} DA</b>
                 </p>
               </div>
+
               <div className="card-footer">
+                <span className={`etat-badge ${getEtatClass(cmd.etat)}`}>
+                  {cmd.etat || "—"}
+                </span>
                 <span className="badge">
                   {cmd.stopDesk ? "🛑 Stop Desk" : "🚚 Livraison"}
                 </span>

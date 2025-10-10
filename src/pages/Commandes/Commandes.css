@@ -116,3 +116,38 @@
 .pagination button:hover:not(:disabled) {
   background-color: #0056b3;
 }
+
+/* --- États des commandes --- */
+.etat-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+
+.etat-nouvelle {
+  background-color: #90caf9; /* Bleu clair */
+}
+
+.etat-atelier {
+  background-color: #ce93d8; /* Violet */
+}
+
+.etat-envoyer {
+  background-color: #ffb74d; /* Orange */
+}
+
+.etat-livre {
+  background-color: #66bb6a; /* Vert */
+}
+
+.etat-annule {
+  background-color: #ef5350; /* Rouge */
+}
+
+.etat-inconnue {
+  background-color: #9e9e9e; /* Gris */
+}

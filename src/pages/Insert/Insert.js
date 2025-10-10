@@ -102,6 +102,7 @@ export default function Insert() {
       console.log("✅ commande finale :", commande_extracted);
 
       const commande = [
+        'Nouvelle',
         getCurrentDateTime(),
         commande_extracted.reference,
         commande_extracted.name,

@@ -12,6 +12,7 @@ export async function Get_Commandes() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'commandes'
   });  
+  console.log(res.data)
   return res.data;
 }
 
