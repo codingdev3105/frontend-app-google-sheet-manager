@@ -66,6 +66,10 @@ export default function Commandes() {
     async function loadData() {
       try {
         const data = await Get_Commandes();
+        if(!data){
+          console.log(data)
+        }
+        console.log(data)
         const cleanData = formaterCommandes(data);
         setCommandes(cleanData);
       } catch (err) {
