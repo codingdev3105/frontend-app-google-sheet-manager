@@ -14,6 +14,12 @@
   margin-bottom: 20px;
 }
 
+.filter-bar{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .search-bar {
   padding: 10px 15px;
   border-radius: 8px;
@@ -159,6 +165,8 @@
 
 .chart-section {
   margin-bottom: 20px;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* multicolor spinner */
@@ -193,11 +201,7 @@
   border-radius: 50%;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
+
 
 @media (max-width:900px) {
   .chart-section {
@@ -207,10 +211,20 @@
   .orders-header {
     gap: 10px;
   }
-
+  .filter-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 90%;
+    align-items: center;
+  }
   .search-bar {
     width: 100%;
   }
+  .chart-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
 }
-
-/* end */

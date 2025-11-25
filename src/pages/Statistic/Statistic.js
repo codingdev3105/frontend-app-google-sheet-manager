@@ -132,13 +132,14 @@ export default function Statistics() {
 
   const byWilaya = useMemo(() => {
     const m = {};
-    filtered.forEach(c => {
-      const code = c.codeWilaya || c.code || "Inconnu";
-      const label = String(code);
-      m[label] = (m[label] || 0) + 1;
+    filtered.forEach((c) => {
+      let code = c.codeWilaya || c.code || "Inconnu";
+      code = code.trim() === "" ? "Inconnu" : code; // remplacer les cases vides par "Inconnu"
+      m[code] = (m[code] || 0) + 1;
     });
-    return Object.keys(m).map(k => ({ name: k, value: m[k] }));
+    return Object.keys(m).map((k) => ({ name: k, value: m[k] }));
   }, [filtered]);
+
 
   const byDate = useMemo(() => {
     const m = {};
@@ -183,7 +184,7 @@ export default function Statistics() {
     <div className="orders-container">
       <div className="orders-header">
         <h2>Statistiques — Y Store35</h2>
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <div className="filter-bar" >
           <input className="search-bar" placeholder="Rechercher... (client/produit)" value={query} onChange={e => setQuery(e.target.value)} />
           <input type="date" className="search-bar" value={dateFrom} onChange={e => setDateFrom(e.target.value)} />
           <input type="date" className="search-bar" value={dateTo} onChange={e => setDateTo(e.target.value)} />
@@ -193,13 +194,14 @@ export default function Statistics() {
       <div className="cards-grid" style={{ marginBottom: 20 }}>
         <div className="order-card">
           <div className="card-header"><span>Total commandes</span><span className="badge">au total</span></div>
-          <div className="card-body"><h3>{totalCommandes}</h3><p>Nombre de commandes correspondant aux filtres actuels</p></div>
+          <div className="card-body"><h3>{totalCommandes}</h3></div>
           <div className="card-footer"><button className="badge" onClick={exportNouvellesCSV}>Exporter nouvelles</button></div>
         </div>
+        
       </div>
 
-      <div className="chart-section" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }}>
-        <div className="chart-card" style={{ gridColumn: '1 / -1' }}>
+      <div className="chart-section flex">
+        <div className="chart-card">
           <h4>Nombre de commandes par état</h4>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={byEtat}>
@@ -212,19 +214,6 @@ export default function Statistics() {
                   <Cell key={`cell-${idx}`} fill={entry.fill} />
                 ))}
               </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-        
-        <div className="chart-card">
-          <h4>Commandes par wilaya</h4>
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={byWilaya}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} />
-              <YAxis allowDecimals={false} />
-              <Tooltip />
-              <Bar dataKey="value" fill="#4f46e5" radius={[6,6,0,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -242,9 +231,21 @@ export default function Statistics() {
           </ResponsiveContainer>
         </div>
 
+        <div className="chart-card">
+          <h4>Commandes par wilaya</h4>
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={byWilaya}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} />
+              <YAxis allowDecimals={false} />
+              <Tooltip />
+              <Bar dataKey="value" fill="#4f46e5" radius={[6,6,0,0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
 
       </div>
-
+{/* 
       <h3 style={{ marginBottom: 12 }}>Commandes — état: Nouvelle</h3>
       <div className="cards-grid">
         {nouvelles.length === 0 && <div className="no-orders">Aucune commande nouvelle</div>}
@@ -265,7 +266,7 @@ export default function Statistics() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="pagination">
         {/* Placeholder if you want pagination later */}
