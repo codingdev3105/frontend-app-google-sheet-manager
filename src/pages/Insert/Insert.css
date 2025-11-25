@@ -1,58 +1,59 @@
-.inserer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: start;
-  height: 600px;
-  gap: 40px; 
-}
+/* Insert.css — version finale */
 
-.inser-semi-page {
-  width: 50%;
-  display: flex;
+/* GLOBAL */
+.insert-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+}
+
+.mode-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.input-large {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* AUTO SECTION */
+.auto-section {
+  background: #fafafa;
   padding: 20px;
-  background-color: #fafafa;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
-.inser-semi-page h2 {
-  color: #333;
-  font-weight: 500;
-  font-size: 20px;
+/* MANUAL SECTION */
+.manual-section {
+  flex-direction: column;
+  background: #fafafa;
+  gap: 20px;
+  border-radius: 10px;
 }
 
-.inserer-mobile {
-  display: none;
+.manual-grid {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
-@media (max-width: 768px) {
-  .inserer {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-  }
-
-  .inser-semi-page {
-    display: none;
-  }
-
-  .inserer-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
-    background: #fafafa;
-    border-radius: 10px;
-  }
-
-  .inserer-mobile h3 {
-    margin: 0;
-    color: #333;
-  }
+/* STATUS */
+.status-message {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
 }

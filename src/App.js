@@ -3,6 +3,13 @@ import Home from "./pages/Home/Home";
 import Commandes from "./pages/Commandes/Commandes";
 import Insert from "./pages/Insert/Insert";
 import Statistics from "./pages/Statistic/Statistic";
+import { AiOutlineHome } from "react-icons/ai";
+import { RiAddCircleLine } from "react-icons/ri";
+import { BsList } from "react-icons/bs";
+
+
+import { MdFormatListBulleted } from "react-icons/md";
+import { FcStatistics } from "react-icons/fc";
 import "./App.css"
 
 function App() {
@@ -24,14 +31,18 @@ function App() {
             <Link to="/" className="nav-option-acceuil">
               Gestion de Commerce
             </Link>
+           
           </h3>
         </div>
 
-        <h3>
-          <Link to="/" className="nav-option-acceuil2">
-            Gestion de Commerce
-          </Link>
-        </h3>
+        <div className="nav-options-icons">
+          <h3>
+            <Link to="/">
+              Gestion de Commerce
+            </Link>
+           
+          </h3>
+        </div>
 
         <div className="nav-options flex">
           <Link to="/" className="nav-option">Accueil</Link>

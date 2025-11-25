@@ -5,14 +5,14 @@ import axios from "axios";
 // "https://backend-app-google-sheet-manager.vercel.app"
 // "http://localhost:5000"
 
-const API_URL = "https://backend-app-google-sheet-manager.vercel.app";
+const API_URL = "http://localhost:5000";
 
 
 export async function Get_Commandes() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'commandes'
   });  
-  console.log(res.data)
+  // console.log(res.data)
   return res.data;
 }
 
@@ -26,7 +26,7 @@ export async function Get_wilayas() {
 export async function Get_Communes(wilaya_id) {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code communes'
-  }); 
+  });
 
   const all_communes = res.data;
   const filtred_communes = []
@@ -47,6 +47,7 @@ export async function Get_stations() {
   const res = await axios.post(`${API_URL}/sheets/get`,{
     feuile:'code stations'
   }); 
+  
   return res.data;
 }
 

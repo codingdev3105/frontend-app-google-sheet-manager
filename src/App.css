@@ -54,7 +54,7 @@ a {
 }
 
 
-.nav-option-acceuil2 {
+.nav-options-icons {
     display: none;
 }
 
@@ -62,6 +62,7 @@ a {
 .pages{
     padding: 0px 50px;
 }
+
 @media (max-width: 768px) {
     .nav{
         flex-direction: row;
@@ -84,7 +85,14 @@ a {
     .nav-option-acceuil{
         display: none;
     }
-    .nav-option-acceuil2 {
+    .nav-options-icons {
+        
         display: block;
+        
+    }
+    .nav-options-icons-content{
+        display: flex;
+        gap: 20px;
+        font-size: 40px;
     }
 }
