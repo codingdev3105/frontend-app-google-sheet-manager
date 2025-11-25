@@ -184,11 +184,8 @@ export default function Statistics() {
     <div className="orders-container">
       <div className="orders-header">
         <h2>Statistiques — Y Store35</h2>
-        <div className="filter-bar" >
-          <input className="search-bar" placeholder="Rechercher... (client/produit)" value={query} onChange={e => setQuery(e.target.value)} />
-          <input type="date" className="search-bar" value={dateFrom} onChange={e => setDateFrom(e.target.value)} />
-          <input type="date" className="search-bar" value={dateTo} onChange={e => setDateTo(e.target.value)} />
-        </div>
+        <input className="search-bar" placeholder="Rechercher... (client/produit)" value={query} onChange={e => setQuery(e.target.value)} />
+        
       </div>
 
       <div className="cards-grid" style={{ marginBottom: 20 }}>
