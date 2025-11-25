@@ -5,7 +5,7 @@ import axios from "axios";
 // "https://backend-app-google-sheet-manager.vercel.app"
 // "http://localhost:5000"
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://backend-app-google-sheet-manager.vercel.app";
 
 
 export async function Get_Commandes() {
