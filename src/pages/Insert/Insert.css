@@ -42,6 +42,7 @@
   background: #fafafa;
   gap: 20px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .manual-grid {
@@ -51,9 +52,26 @@
   gap: 15px;
 }
 
+.input-manuel{
+  width: 45%;
+}
 /* STATUS */
 .status-message {
   margin-top: 20px;
   font-size: 16px;
   font-weight: bold;
+}
+
+@media (max-width: 768px){
+  /* MANUAL SECTION */
+
+  .manual-grid {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    width: 100%;
+  }
+  .input-manuel{
+    width: 100%;
+  }
 }

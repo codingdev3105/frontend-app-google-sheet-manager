@@ -313,7 +313,7 @@ export default function Insert() {
             <TextField
               label="Référence"
               name="reference"
-              style={{ width: "45%" }}
+              className="input-manuel" 
               value={manualData.reference}
               onChange={handleManualChange}
             />
@@ -321,7 +321,7 @@ export default function Insert() {
             <TextField
               label="Nom complet"
               name="name"
-              style={{ width: "45%" }}
+              className="input-manuel" 
               value={manualData.name}
               onChange={handleManualChange}
             />
@@ -329,7 +329,8 @@ export default function Insert() {
             <TextField
               label="Téléphone 1"
               name="tel1"
-              style={{ width: "45%" }}
+              className="input-manuel"
+              
               value={manualData.tel1}
               onChange={handleManualChange}
             />
@@ -337,7 +338,8 @@ export default function Insert() {
             <TextField
               label="Téléphone 2"
               name="tel2"
-              style={{ width: "45%" }}
+              className="input-manuel"
+              
               value={manualData.tel2}
               onChange={handleManualChange}
             />
@@ -345,7 +347,7 @@ export default function Insert() {
             <TextField
               label="Produit"
               name="produit"
-              style={{ width: "92%" }}
+              className="input-manuel"
               value={manualData.produit}
               onChange={handleManualChange}
             />
@@ -353,7 +355,8 @@ export default function Insert() {
             <TextField
               label="Prix Total"
               name="total"
-              style={{ width: "45%" }}
+              className="input-manuel"
+              
               value={manualData.total}
               onChange={handleManualChange}
             />
@@ -362,7 +365,8 @@ export default function Insert() {
               select
               label="Type d'envoi"
               name="typedenvoi"
-              style={{ width: "45%" }}
+              className="input-manuel"
+              
               value={manualData.typedenvoi}
               onChange={handleManualChange}
             >
@@ -416,7 +420,8 @@ export default function Insert() {
                   renderInput={(params) => (
                     <TextField {...params} label="Wilaya" />
                   )}
-                  style={{ width: "45%" }}
+                  className="input-manuel"
+                  
                 />
 
                 <Autocomplete
@@ -439,7 +444,9 @@ export default function Insert() {
                   renderInput={(params) => (
                     <TextField {...params} label="Commune" />
                   )}
-                  style={{ width: "45%" }}
+                  
+                  className="input-manuel"
+                  
                 />
               </>
             )}
